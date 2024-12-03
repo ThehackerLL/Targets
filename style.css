@@ -1,0 +1,110 @@
+* {
+    box-sizing: border-box;
+}
+
+body,
+div,
+ul,
+li,
+a,
+h1,
+h2,
+h3,
+h4 {
+    margin: 0;
+    padding: 0;
+}
+:root {
+    --bg-color: color-mix(in srgb, rgb(226, 233, 238) 70%, #fff); 
+    --card-color: #fff;
+    --card-transparent: #fff9;
+    --dark-color: #f62;
+    --text-color: #444;
+    font-family: sans-serif;
+    --black-transparent:rgba(0,0,0, 0.4);
+    --black-transparent2:#f1f1f1;
+}
+.card-max {
+    margin: 20px auto;
+    width: 95%;
+    background-color: var(--black-transparent2);
+    height: 600px;
+    display: flex;
+    justify-content: center;
+    border-radius: 15px;
+}
+.card {
+    /* max-width: clamp(160px, 50%, 330px); */
+    background-color: rgba(255, 255, 255, 0.6);
+    /* border: 1px solid black; */
+    margin: auto;
+    position: relative;
+    width: 350px;
+    height: 500px;
+    border-radius: 12px;
+}
+.card-front {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.card-front-img {
+    max-height: 500px;
+}
+img {
+    max-width: 100%;
+    border-radius: 12px;
+}
+.mision {
+    text-align: center;
+    display: block;
+    padding: 13px 0;
+    position: absolute;
+    color: var(--card-color);
+    /* background-color: var(--card-transparent); */
+    width: 100%;
+    background-color: var(--black-transparent);
+    border-radius: 7px;
+}
+.card-back {
+    position: absolute;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    display: grid;
+    place-content: center;
+    padding: 25px;
+}
+.card-img img {
+    width: 50px;
+    border-radius: 50%;
+}
+.card-back, .card-front {
+    backface-visibility: hidden;
+    transition: transform 1s;
+    overflow: hidden;
+    border-radius: 12px;
+    background-color: var(--card-color);
+}
+.card-back {
+    transform: perspective(1200px) rotateY(180deg);
+}
+.card-front {
+    transform: perspective(1200px) rotateY(0deg);
+}
+.card:hover .card-back {
+    transform: perspective(1200px) rotateY(360deg);
+}
+.card:hover .card-front {
+    transform: perspective(1200px) rotateY(180deg);
+}
+
+hr{
+    left: 0;
+    margin-right: 70px;
+}
+p{
+    text-align: justify;
+}
+

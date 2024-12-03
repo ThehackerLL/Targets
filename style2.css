@@ -1,0 +1,149 @@
+* {
+    box-sizing: border-box;
+}
+
+body,
+div,
+ul,
+li,
+a,
+h1,
+h2,
+h3,
+h4 {
+    margin: 0;
+    padding: 0;
+}
+
+.flex {
+    display: flex;
+}
+
+:root {
+    --bg-color: color-mix(in srgb, #f62 70%, #fff); 
+    --card-color: #fff;
+    --card-transparent: #fff9;
+    --dark-color: #f62;
+    --text-color: #444;
+    background-color: var(--bg-color);
+    font-family: sans-serif;
+}
+
+/* DISEÑO DE LA TARJETA */
+.card {
+    max-width: clamp(160px, 50%, 330px);
+    background-color: var(--card-transparent);
+    /* border: 1px solid black; */
+    margin: 50px auto;
+    position: relative;
+    /* posición para que no se escape el texto (relative - absolute) */
+    /* Position relative, se asegura de que todo movimiento como top, bottom, left, o right
+    solo suceda dentro de la tarjeta, si este elemeno no esta, los divs, o elementos, al usar propiedades de posición
+    como top, bottom, left o right, se haran fuera de la tarjeta */
+}
+
+.card-worker {
+    max-height: 150px;
+    overflow: hidden;
+    display: block;
+}
+
+.card-worker img {
+    width: 100%;
+}
+
+.card-data {
+    padding: 12px;
+}
+
+.card-data span {
+    font-size: 1.4rem;
+    margin: 6px 0;
+    display: block;
+}
+
+.card-back {
+    position: absolute;
+    /* posición para que no se escape el texto (relative - absolute) */
+    top: 0;
+    width: 100%;
+    height: 100%;
+    /* Display grid and place-conten center: cirven para centrar el texto del div card-back */
+    display: grid;
+    place-content: center;
+    padding: 12px;
+}
+
+/* DISEÑO DE LA TARJETA */
+/* DAR VUELTA EL PARRAFO */
+
+.card-back, .card-front {
+    /* Backface-visibility:hidden , sirve para ocultar el div card-back, la propiedad Backface-visibility
+    usualmente escoje al que esta primero en el selector que en este caso es card-back  */
+    /* overflow: hidden; Es útil para recortar las partes no deseadas de un elemento, especialmente cuando 
+    se trabaja con elementos que tienen animaciones o desplazamientos, como imágenes o cajas de texto. En este caso
+    para hacer un border-radius en esta animación creada */
+    backface-visibility: hidden;
+    transition: transform 1s;
+    background-color: var(--card-color);
+    overflow: hidden;
+    border-radius: 20px;
+}
+
+.card-back {
+    transform: perspective(1200px) rotateY(180deg);
+}
+
+.card-front {
+    transform: perspective(1200px) rotateY(0deg);
+}
+
+.card:hover .card-front {
+    transform: perspective(1200px) rotateY(180deg);
+}
+
+.card:hover .card-back {
+    transform: perspective(1200px) rotateY(360deg);
+}
+
+/* DAR VUELTA EL PARRAFO */
+/* EDITAR EL DIV CARD BACK NEW */
+
+.new2 {
+    border-radius: 20px;
+}
+
+.new {
+    display: block;
+}
+
+.skill-bar {
+    border: 3px solid var(--dark-color);
+    margin: 12px;
+    padding: 3px;
+    border-radius: 4px;
+}
+
+.skill-bar div {
+    background-color: var(--bg-color);
+    padding: 9px;
+    color: var(--card-color);
+}
+
+.skill-bar:last-child div {
+    width: 70%;
+}
+
+.skill-bar:nth-child(2) div {
+    width: 90%;
+}
+
+.skill-bar:nth-child(3) div {
+    width: 90%;
+}
+
+.skill-bar:nth-child(4) div {
+    width: 50%;
+}
+
+/* EDITAR EL DIV CARD BACK NEW */
